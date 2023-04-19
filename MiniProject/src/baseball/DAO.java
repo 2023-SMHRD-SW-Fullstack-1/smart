@@ -13,11 +13,11 @@ public class DAO {
 	   PreparedStatement pstm = null;
 	   ResultSet rs = null;
 	   
-	   private String team = "";
+	   private String team = "TEAM_";
 	   private int[] PlayerNum = new int[5];
 	   
 	   public void teamset(String team) { //선택한 팀 구단 가져오기
-		   this.team = team+"구단";
+		   this.team += team;
 	   }
 	   
 	   public void teamadd(int[] PlayerNum) { //선수들 번호 받아오기
