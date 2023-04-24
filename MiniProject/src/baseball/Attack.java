@@ -1,6 +1,7 @@
 package baseball;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /*
 본인의 팀 중에서 타자를 순서대로 출전시킨다.
@@ -11,14 +12,51 @@ import java.util.ArrayList;
 - 확률 안에 드는 경우에는 안타 행위를 한다.
 - 확률의 1/10에 드는 경우에는 홈런 행위를 한다.
 - 안타 행위는 count를 하나 올린다
+
 */
 public class Attack {
+	Random rd = new Random();
 	DAO dao = new DAO();
 	ArrayList<DTO> List = dao.Infor();
-	public void Percent() {
+	int result=0;
+
+	public	int Percent(int selteam) {
+		int ran=rd.nextInt(100)+10;
 		
-		List.get(1);
-		System.out.println(List.get(1));
+			int ba =List.get(selteam).getBa();
+		
+		if(ba/8 >ran) {
+			
+			return 2; //홈런
+		}
+		else if(ba-10>ran) {
+			
+			return 1; //안타
+		}
+		else if(ba-10<=ran && ran <= ba+10 ) {
+			
+			return 4; //볼
+			// ba= 32 ran= 10
+		}
+		else if(ran<82) {
+			
+			return 3; //스트라이크
+		}
+		
+		else {
+			
+			return 5; //아웃
+		}
+		
+		
+		
+		
+		}
+		
 	}
 	
-}
+	
+	
+	
+	
+
